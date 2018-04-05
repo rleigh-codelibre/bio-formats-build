@@ -18,3 +18,8 @@ matrix:
 before_install:
   - git submodule update --remote
   - pip install --user -r ome-model/requirements.txt
+  - pip install --user -r bio-formats-documentation/requirements.txt
+
+script:
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - mvn test -DskipSphinxTests=true -B
